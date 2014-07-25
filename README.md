@@ -9,9 +9,6 @@ Usage
 ```
 # imgbrwsr -h
 Usage of imgbrwsr:
-  -c=300: The thumbnail buffer size (shorthand)
-  -cache_size=300: The thumbnail buffer size
-  -s=200: The thumbnail size (shorthand)
-  -thumb_size=200: The thumbnail size
-
+  -c=300: The thumbnail buffer size
+  -s=200: The thumbnail size
 ```

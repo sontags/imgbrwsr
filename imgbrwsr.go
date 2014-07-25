@@ -133,13 +133,8 @@ var cacheSize int
 var thumbSize int
 
 func init() {
-	usage := "The thumbnail buffer size"
-	flag.IntVar(&cacheSize, "cache_size", defaultCacheSize, usage)
-	flag.IntVar(&cacheSize, "c", defaultCacheSize, usage+" (shorthand)")
-
-	usage = "The thumbnail size"
-	flag.IntVar(&thumbSize, "thumb_size", defaultThumbSize, usage)
-	flag.IntVar(&thumbSize, "s", defaultThumbSize, usage+" (shorthand)")
+	flag.IntVar(&cacheSize, "c", defaultCacheSize, "The thumbnail buffer size")
+	flag.IntVar(&thumbSize, "s", defaultThumbSize, "The thumbnail size")
 }
 
 func getImage(name string) image.Image {
