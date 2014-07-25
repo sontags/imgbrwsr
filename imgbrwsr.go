@@ -193,12 +193,15 @@ func listDir(path string) string {
 	for _, f := range files {
 		if f.IsDir() {
 			baseLink := path + "/" + f.Name()
-			link := Link{
-				Href:  "/" + baseLink,
-				Thumb: getDirThumb(baseLink),
-				Text:  f.Name(),
+			thumb := getDirThumb(baseLink)
+			if thumb != "" {
+				link := Link{
+					Href:  "/" + baseLink,
+					Thumb: getDirThumb(baseLink),
+					Text:  f.Name(),
+				}
+				links = append(links, link)
 			}
-			links = append(links, link)
 		} else {
 			if strings.HasSuffix(f.Name(), ".jpg") {
 				imgPath := path + "/" + f.Name()
