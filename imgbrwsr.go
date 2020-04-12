@@ -17,6 +17,7 @@ import (
 
 	"github.com/codegangsta/martini"
 	"github.com/disintegration/imaging"
+	_ "github.com/rakyll/gom/http"
 	"github.com/sontags/imgbrwsr/thumbcache"
 )
 
@@ -203,7 +204,7 @@ func listDir(path string) string {
 				links = append(links, link)
 			}
 		} else {
-			if strings.HasSuffix(f.Name(), ".jpg") {
+			if strings.HasSuffix(f.Name(), ".jpg") || strings.HasSuffix(f.Name(), ".JPG") {
 				imgPath := path + "/" + f.Name()
 
 				link := Link{
@@ -263,7 +264,7 @@ func getDirThumb(path string) string {
 	filesInDir, _ := ioutil.ReadDir(path)
 	for _, file := range filesInDir {
 		if !file.IsDir() {
-			if strings.HasSuffix(file.Name(), ".jpg") {
+			if strings.HasSuffix(file.Name(), ".jpg") || strings.HasSuffix(file.Name(), ".JPG") {
 				return "/thumb/" + path + "/" + file.Name()
 			}
 		} else {
